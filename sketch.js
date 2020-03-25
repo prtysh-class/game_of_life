@@ -1,4 +1,11 @@
 // http://www.stephanimoroni.com/how-to-create-a-2d-array-in-javascript/
+let system;
+var canvas;
+
+function windowResized(){
+    resizeCanvas(windowWidth,windowHeight);
+}
+
 var grid;
 
 class cell {
@@ -14,7 +21,10 @@ class cell {
 }
 
 function setup() {
-    createCanvas(400, 400);
+    canvas = createCanvas(windowWidth, windowHeight);
+    canvas.position(0,0);
+    canvas.style('z-index','-10');
+
     grid = Array.matrix(10, 10, 0);
 
     for (let i = 0; i < 10; i++) {
